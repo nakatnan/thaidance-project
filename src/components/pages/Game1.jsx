@@ -4,7 +4,7 @@ import logo from "../../assets/game1/logo.PNG";
 import bg from "../../assets/game1/bg.png";
 import ss from "../../assets/game1/ss.gif";
 import modal from "../../assets/game1/modal.png";
-import q1 from "../../assets/game3/q1/q1.png";
+import q1 from "../../assets/game1/q1/q1.png";
 import q1_c1 from "../../assets/game1/q1/q1_c1.png";
 import q1_c2 from "../../assets/game1/q1/q1_c2.png";
 import q1_c3 from "../../assets/game1/q1/q1_c3.png";

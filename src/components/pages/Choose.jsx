@@ -24,7 +24,7 @@ const Choose = () => {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="flex flex-col items-center gap-6">
             {/* Instruction text */}
-            <h2 className="text-white text-3xl font-semibold font-display mb-2 text-center">
+            <h2 className="text-white text-4xl font-bold font-display mb-4 bg-pink-500/80 rounded-full px-6 py-3 shadow-lg">
               กรุณารับชมวิดีโอก่อนนะคะ
             </h2>
 
@@ -46,7 +46,7 @@ const Choose = () => {
             {/* Navigation button */}
             <button
               onClick={handleNext}
-              className="btn btn-primary font-display text-xl px-8 py-3 mt-4 hover:scale-105 transition-transform"
+              className="btn btn-secondary font-display text-xl px-8 py-3 mt-4 hover:scale-105 transition-transform"
             >
               ไปหน้าถัดไป
             </button>
