@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/game1/logo.png";
+import logo from "../../assets/game1/logo.PNG";
 import bg from "../../assets/game1/bg.png";
 import ss from "../../assets/game1/ss.gif";
 import modal from "../../assets/game1/modal.png";
