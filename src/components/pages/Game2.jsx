@@ -16,7 +16,7 @@ function Game2() {
     },
     {
       image: q2,
-      answer: "บายศรีสู่ขวัญ",
+      answer: "รำบายศรีสู่ขวัญ",
     },
   ];
 
