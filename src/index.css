@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --font-display: "Itim", serif;
+  --primary: "A69658";
+}
