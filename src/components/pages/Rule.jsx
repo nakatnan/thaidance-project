@@ -2,11 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import bg from "../../assets/bg.png";
 
-const Choose = () => {
+const Rule = () => {
   const navigate = useNavigate();
 
   const handleNext = () => {
-    navigate("/start"); // Replace with your actual route
+    navigate("/choose"); // Replace with your actual route
   };
 
   return (
@@ -19,7 +19,7 @@ const Choose = () => {
           <div className="flex flex-col items-center gap-6">
             {/* Instruction text */}
             <h2 className="text-white text-4xl font-bold font-display mb-4 bg-pink-500/80 rounded-full px-6 py-3 shadow-lg">
-              กรุณารับชมวิดีโอก่อนนะคะ
+              แนะนำกติกาการเล่น
             </h2>
 
             {/* Video container */}
@@ -27,7 +27,7 @@ const Choose = () => {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/JMItuvCWGgg?si=p_c62yEJKw2yO_nG"
+                src="https://www.youtube.com/embed/ykzZXRi7wEs?si=FIwN7crx3lGZNT9q"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -51,4 +51,4 @@ const Choose = () => {
   );
 };
 
-export default Choose;
+export default Rule;

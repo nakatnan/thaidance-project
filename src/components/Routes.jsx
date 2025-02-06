@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Main from "./Main.jsx";
+import Rule from "./pages/Rule.jsx";
 import Choose from "./pages/Choose.jsx";
 import Start from "./pages/Start.jsx";
 import Game1 from "./pages/Game1.jsx";
@@ -14,6 +15,7 @@ const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Main />} />
+      <Route path="/rule" element={<Rule />} />
       <Route path="/choose" element={<Choose />} />
       <Route path="/start" element={<Start />} />
       <Route path="/game1" element={<Game1 />} />

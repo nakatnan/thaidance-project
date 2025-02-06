@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { motion as m } from "motion";
-import bg from "../assets/bg.mp4";
+import bg from "../assets/bg.png";
 import logo from "../assets/logo.png";
 import teach1 from "../assets/teach1.png";
 import teach2 from "../assets/teach2.png";
@@ -29,13 +29,7 @@ const Main = () => {
   return (
     <div>
       <div className="relative w-full h-screen">
-        <video
-          src={bg}
-          autoPlay
-          loop
-          muted
-          className="blur-sm w-full h-full object-cover"
-        ></video>
+        <img src={bg} className="blur-sm w-full h-full object-cover"></img>
         <div className="absolute inset-0 flex flex-col justify-center items-center">
           <div>
             <img
@@ -47,7 +41,7 @@ const Main = () => {
 
           <button
             className="btn btn-secondary rounded-full outline-0 shadow-xl mt-15 py-7 px-10 h-fit font-display text-5xl transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-130"
-            onClick={() => navigate("/choose")}
+            onClick={() => navigate("/rule")}
           >
             เริ่มเล่นเกม
           </button>
