@@ -220,7 +220,7 @@ const Game5 = () => {
     if (isGameComplete) {
       return (
         <div className="flex flex-col justify-center items-center text-center px-4 mt-50">
-          <h1 className="text-3xl md:text-5xl font-semibold font-display mb-6 md:mb-10 mt-6 md:mt-10">
+          <h1 className="text-white text-3xl md:text-5xl font-semibold font-display mb-6 md:mb-10 mt-6 md:mt-10">
             ผ่านด่านที่ห้าแล้วจ้า
           </h1>
           <button
@@ -236,10 +236,10 @@ const Game5 = () => {
     return (
       <DndProvider backend={HTML5Backend}>
         <div className="px-4 w-full max-w-7xl mx-auto text-center mt-10">
-          <h1 className="text-2xl md:text-4xl font-semibold font-display mb-8">
+          <h1 className="text-white text-2xl md:text-4xl font-semibold font-display mb-8">
             จงแยกประเภทคำตอบต่อไปนี้ให้ถูกต้อง
           </h1>
-          <h1 className="text-2xl md:text-2xl font-semibold font-display mb-8">
+          <h1 className="text-white text-2xl md:text-2xl font-semibold font-display mb-8">
             ข้อที่: {currentQuestion + 1}
           </h1>
 

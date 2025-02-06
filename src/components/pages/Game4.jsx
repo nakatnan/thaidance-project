@@ -30,7 +30,16 @@ function Game4() {
     {
       image: q3,
       choice: q3_c1,
-      answer: "ปริ๊นซ์เทียเตอร์",
+      answer: [
+        "ปริ้นเธียเตอร์",
+        "ปริ๊นเธียเตอร์",
+        "ปริ้นซ์เธียเตอร์",
+        "ปริ๊นซ์เธียเตอร์",
+        "ปริ้นเทียเตอร์",
+        "ปริ๊นเทียเตอร์",
+        "ปริ้นซ์เทียเตอร์",
+        "ปริ๊นซ์เทียเตอร์",
+      ],
     },
     {
       image: q4,
@@ -70,7 +79,12 @@ function Game4() {
     const userAnswer = e.target.answer.value.trim().toLowerCase();
     const currentQuestion = questions[currentQuestionIndex];
 
-    if (userAnswer === currentQuestion.answer.toLowerCase()) {
+    // Convert answer to array if it's a single string
+    const correctAnswers = Array.isArray(currentQuestion.answer)
+      ? currentQuestion.answer.map((ans) => ans.toLowerCase())
+      : [currentQuestion.answer.toLowerCase()];
+
+    if (correctAnswers.includes(userAnswer)) {
       // Correct answer
       setButtonState("correct");
       setScore(score + 1);

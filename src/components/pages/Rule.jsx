@@ -23,17 +23,15 @@ const Rule = () => {
             </h2>
 
             {/* Video container */}
-            <div className="w-[800px] h-[450px] bg-black/60 p-4 rounded-lg shadow-lg">
+            <div className="w-[50vw] max-w-[800px] aspect-video bg-black/60 p-4 rounded-lg shadow-lg">
               <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/ykzZXRi7wEs?si=FIwN7crx3lGZNT9q"
+                className="w-full h-full rounded-lg"
+                src="https://www.youtube.com/embed/ykzZXRi7wEs?si=PV9Kf0vPJAWzYp29"
                 title="YouTube video player"
-                frameBorder="0"
+                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                className="rounded-lg"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
               ></iframe>
             </div>
 
