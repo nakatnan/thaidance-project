@@ -72,6 +72,12 @@ const Game6 = () => {
           alt="Logo"
           className="w-full max-w-[300px] mx-auto mb-8"
         />
+        <h1 className="text-center text-slate-700 text-2xl md:text-2xl font-semibold font-display mb-8">
+          ”ฟังดี ๆ มีคำตอบ“
+        </h1>
+        <h1 className="text-center text-slate-700 text-2xl md:text-2xl font-semibold font-display mb-8">
+          จงเลือกผู้ที่พูดคำตอบถูกต้อง
+        </h1>
 
         {!isComplete ? (
           <>

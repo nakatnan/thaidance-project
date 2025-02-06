@@ -253,13 +253,13 @@ const Game5 = () => {
 
           <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-8 mb-8">
             <div className="text-center">
-              <h3 className="mb-2 font-display text-2xl">
+              <h3 className="text-white mb-2 font-display text-2xl">
                 {questions[currentQuestion].frameLeft}
               </h3>
               <DropFrame frame="left" images={leftFrame} onDrop={handleDrop} />
             </div>
             <div className="text-center">
-              <h3 className="mb-2 font-display text-2xl">
+              <h3 className="text-white mb-2 font-display text-2xl">
                 {questions[currentQuestion].frameRight}
               </h3>
               <DropFrame
