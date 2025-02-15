@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { useNavigate } from "react-router-dom";
+import { useScore } from "../ScoreContext";
+import ScoreDisplay from "../ScoreDisplay";
 
 import bg from "../../assets/game5/bg.PNG";
 import ghost from "../../assets/game5/ghost.gif";
@@ -137,6 +139,7 @@ const DropFrame = ({ frame, images, onDrop }) => {
 
 const Game5 = () => {
   const navigate = useNavigate();
+  const { updateScore } = useScore();
   const [showLogo, setShowLogo] = useState(true);
   const [qModal, setQModal] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -146,6 +149,7 @@ const Game5 = () => {
   const [buttonState, setButtonState] = useState("");
   const [isWrongAnswer, setIsWrongAnswer] = useState(false);
   const [isGameComplete, setIsGameComplete] = useState(false);
+  const [questionScore, setQuestionScore] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowLogo(false), 3000);
@@ -195,6 +199,14 @@ const Game5 = () => {
 
     if (isCorrect) {
       setButtonState("correct");
+
+      // Update the question score
+      const newQuestionScore = questionScore + 1;
+      setQuestionScore(newQuestionScore);
+
+      // Update the global score
+      updateScore("game5", newQuestionScore);
+
       setTimeout(() => {
         if (currentQuestion < questions.length - 1) {
           setCurrentQuestion((prev) => prev + 1);
@@ -297,6 +309,7 @@ const Game5 = () => {
 
   return (
     <div className="relative w-full min-h-screen">
+      <ScoreDisplay />
       <img
         src={bg}
         alt="Background"

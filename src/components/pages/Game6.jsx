@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useScore } from "../ScoreContext";
+import ScoreDisplay from "../ScoreDisplay";
 import logo from "../../assets/game6/logo6.png";
 import bg from "../../assets/game6/bg6.gif";
 import q1 from "../../assets/game6/q1.wav";
@@ -19,6 +21,7 @@ const questions = [
 ];
 
 const Game6 = () => {
+  const { updateScore } = useScore();
   const [showLogo, setShowLogo] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
   const [score, setScore] = useState(0);
@@ -49,8 +52,20 @@ const Game6 = () => {
     });
 
     if (isCorrect) {
-      setScore((prev) => prev + 1);
+      const newScore = score + 1;
+      setScore(newScore);
+      updateScore("game6", newScore); // Update global score with correct game identifier
 
+      setTimeout(() => {
+        if (currentStep < questions.length - 1) {
+          setCurrentStep((prev) => prev + 1);
+          setSelectedAnswer(null);
+        } else {
+          setIsComplete(true);
+        }
+      }, 1000);
+    } else {
+      // Add handling for incorrect answers
       setTimeout(() => {
         if (currentStep < questions.length - 1) {
           setCurrentStep((prev) => prev + 1);
@@ -132,6 +147,7 @@ const Game6 = () => {
 
   return (
     <div className="relative w-full h-screen">
+      <ScoreDisplay />
       <img
         src={bg}
         alt="Background"

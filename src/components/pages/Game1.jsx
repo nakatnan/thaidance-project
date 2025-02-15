@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useScore } from "../ScoreContext";
+import ScoreDisplay from "../ScoreDisplay";
 import logo from "../../assets/game1/logo.PNG";
 import bg from "../../assets/game1/bg.png";
 import ss from "../../assets/game1/ss.gif";
@@ -15,6 +17,7 @@ import q1_c7 from "../../assets/game1/q1/q1_c7.png";
 import q1_c8 from "../../assets/game1/q1/q1_c8.png";
 
 function Game1() {
+  const { updateScore } = useScore();
   const navigate = useNavigate();
   const questions = [
     {
@@ -68,19 +71,26 @@ function Game1() {
       selectedChoices.length === correctChoices.length &&
       selectedChoices.every((choice) => correctChoices.includes(choice));
 
-    const newQuestionScores = [...questionScores];
     if (isCompletelyCorrect) {
-      newQuestionScores[currentQuestionIndex] = 1;
-      setTotalScore((prevScore) => prevScore + 1);
-    }
+      setTotalScore((prevScore) => {
+        const newScore = prevScore + 1;
+        updateScore("game1", newScore); // Update global score
+        return newScore;
+      });
 
-    setQuestionScores(newQuestionScores);
+      setQuestionScores((prevScores) => {
+        const newScores = [...prevScores];
+        newScores[currentQuestionIndex] = 1;
+        return newScores;
+      });
 
-    if (isCompletelyCorrect && currentQuestionIndex < questions.length - 1) {
+      // Move to next question after a delay
       setTimeout(() => {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setSelectedChoices([]);
-        setCorrectAnswersCount(0);
+        if (currentQuestionIndex < questions.length - 1) {
+          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+          setSelectedChoices([]); // Reset choices for the new question
+          setCorrectAnswersCount(0);
+        }
       }, 500);
     }
   };
@@ -91,6 +101,7 @@ function Game1() {
 
   return (
     <div>
+      <ScoreDisplay />
       <div className="relative w-full h-screen">
         <img
           src={bg}

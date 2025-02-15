@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useScore } from "../ScoreContext";
+import ScoreDisplay from "../ScoreDisplay";
 import logo from "../../assets/game4/logo.png";
 import bg from "../../assets/game4/bg.jpeg";
 import swing from "../../assets/game4/swing.gif";
@@ -15,6 +17,7 @@ import q5 from "../../assets/game4/q5/q5.png";
 import q5_c1 from "../../assets/game4/q5/q5_c1.png";
 
 function Game4() {
+  const { updateScore } = useScore();
   const navigate = useNavigate();
   const questions = [
     {
@@ -87,7 +90,11 @@ function Game4() {
     if (correctAnswers.includes(userAnswer)) {
       // Correct answer
       setButtonState("correct");
-      setScore(score + 1);
+      setScore((prevScore) => {
+        const newScore = prevScore + 1;
+        updateScore("game4", newScore);
+        return newScore;
+      });
 
       setTimeout(() => {
         if (currentQuestionIndex < questions.length - 1) {
@@ -113,6 +120,7 @@ function Game4() {
 
   return (
     <div>
+      <ScoreDisplay />
       <div className="relative w-full h-screen">
         <img
           src={bg}

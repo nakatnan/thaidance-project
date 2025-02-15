@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useScore } from "../ScoreContext";
+import ScoreDisplay from "../ScoreDisplay";
 import logo from "../../assets/game2/logo.png";
 import bg from "../../assets/game2/bg.JPG";
 import egg from "../../assets/game2/egg.gif";
@@ -9,6 +11,7 @@ import q2 from "../../assets/game2/q2.png";
 
 function Game2() {
   const navigate = useNavigate();
+  const { updateScore } = useScore();
   const questions = [
     {
       image: q1,
@@ -49,7 +52,12 @@ function Game2() {
     if (userAnswer === currentQuestion.answer.toLowerCase()) {
       // Correct answer
       setButtonState("correct");
-      setScore(score + 1);
+
+      setScore((prevScore) => {
+        const newScore = prevScore + 1;
+        updateScore("game2", newScore);
+        return newScore;
+      });
 
       setTimeout(() => {
         if (currentQuestionIndex < questions.length - 1) {
@@ -75,6 +83,7 @@ function Game2() {
 
   return (
     <div>
+      <ScoreDisplay />
       <div className="relative w-full h-screen">
         <img
           src={bg}
